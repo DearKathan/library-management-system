@@ -1,5 +1,4 @@
-from models import Book
-# ,Member
+from models import Book, Member, Transactions
 from database import session
 
 def add_book(title, author, isbn, count):
@@ -11,8 +10,8 @@ def add_book(title, author, isbn, count):
 def get_book():
     return session.query(Book).all()
 
-# def add_member(name, email):
-#     print("Processing..")
-#     member = Member(name = name, email = email)
-#     session.add(member)
-#     session.commit()
+def add_member(name, email):
+    print("Processing..")
+    member = Member(name = name, email = email)
+    session.add(member)
+    session.commit()
