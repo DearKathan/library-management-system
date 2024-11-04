@@ -15,3 +15,6 @@ def add_member(name, email):
     member = Member(name = name, email = email)
     session.add(member)
     session.commit()
+
+def get_member():
+    return session.query(Member).all()

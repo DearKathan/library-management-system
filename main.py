@@ -1,10 +1,4 @@
-from crud import add_book, get_book, add_member
-
-def printBooks():
-    books = get_book()
-    for book in books:
-        available = "Available" if book.count > 0 else "Not available"
-        print(f"{book.id}: '{book.title}' by {book.author} (ISBN: f{book.isbn}) -  {available} ({book.count} copies)")
+from crud import add_book, get_book, add_member, get_member
 
 
 def addNewBook():
@@ -16,11 +10,24 @@ def addNewBook():
     print("> New book has been added <")
 
 
+def viewBook():
+    books = get_book()
+    for book in books:
+        available = "Available" if book.count > 0 else "Not available"
+        print(f"{book.id}: '{book.title}' by {book.author} (ISBN: f{book.isbn}) -  {available} ({book.count} copies)")
+
+
 def addNewMember():
     name = input("Enter name of the member: ")
     email = input("Enter email id of the member: ")
     add_member(name, email)
     print("> New member has been added <")
+
+
+def viewMember():
+    member = get_member()
+    for member in member:
+        print(f"{member.id} {member.name} (Email id: {member.email})")
 
 
 def main():
@@ -38,10 +45,11 @@ def main():
     if choice == '1':
         addNewBook()    
     elif choice == '2':
-        printBooks()
+        viewBook()
     elif choice == '3':
         addNewMember()
-    # elif choice == '4':
+    elif choice == '4':
+        viewMember()
 
     # elif choice == '5':
 
