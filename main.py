@@ -1,4 +1,4 @@
-from crud import add_book, get_book, add_member, get_member
+from crud import add_book, get_book, add_member, get_member, issue_book
 
 
 def addNewBook():
@@ -30,6 +30,11 @@ def viewMember():
         print(f"{member.id} {member.name} (Email id: {member.email})")
 
 
+def issueABook():
+    book_id = int(input("Enter book id of required book: "))
+    member_id = int(input("Enter required member id: "))
+    issue_book(book_id, member_id)
+
 def main():
     print("************************")
     print("1. Add a Book")
@@ -50,9 +55,8 @@ def main():
         addNewMember()
     elif choice == '4':
         viewMember()
-
-    # elif choice == '5':
-
+    elif choice == '5':
+        issueABook()
     # elif choice == '6':
 
     # elif choice == '7':
